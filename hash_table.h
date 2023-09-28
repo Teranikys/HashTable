@@ -16,17 +16,16 @@
 class hash_table {
 private:
 
-    // The bucket array where
-    // the nodes containing K-V pairs are stored
+    // Массив бакетов
     std::vector<Node *> buckets;
 
-    // No. of pairs stored - n
+    // Количество пар, которые лежат в хэштаблице
     size_t size{};
 
-    // Size of the bucketArray - b
+    // Количество бакетов
     size_t numBuckets;
 
-    // Default loadFactor
+    // Пороговый коэффициент загрузки по умолчанию
     double DEFAULT_LOAD_FACTOR = 0.75;
 
     [[nodiscard]] size_t getBucketInd(int key) const;

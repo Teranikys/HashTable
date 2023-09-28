@@ -54,6 +54,7 @@ int main() {
                     in >> newEntry;
                     table.insert(newEntry.getRecordBookNumber(), newEntry);
                 }
+                in.close();
                 break;
             }
             case 6:
