@@ -3,14 +3,15 @@
 //
 
 #include "entry.h"
+#include "iostream"
 
 
 entry::entry(int recordBookNumber,
              int groupNumber,
-             const string& name) :
-                 recordBookNumber(recordBookNumber),
-                 groupNumber(groupNumber),
-                 name(name) {
+             const string &name) :
+        recordBookNumber(recordBookNumber),
+        groupNumber(groupNumber),
+        name(name) {
     this->recordBookNumber = recordBookNumber;
     this->groupNumber = groupNumber;
     this->name = name;
@@ -39,4 +40,19 @@ const string &entry::getName() const {
 void entry::setName(const string &inputName) {
     entry::name = inputName;
 }
+
+ostream &operator<<(ostream &os, const entry &out) {
+    os << "{RecordBookNumber=" << out.getRecordBookNumber() << ", ";
+    os << "GroupNumber=" << out.getGroupNumber() << ", ";
+    os << "Name=" << out.getName() << "}";
+    return os;
+}
+
+istream &operator>>(istream &is, entry &in) {
+    is >> in.name;
+    is >> in.recordBookNumber;
+    is >> in.groupNumber;
+    return is;
+}
+
 

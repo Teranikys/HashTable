@@ -27,7 +27,13 @@ public:
     void setName(const string &inputName);
 
     entry() : recordBookNumber(0), groupNumber(0), name(){};
+
     entry(int recordBookNumber, int groupNumber, const string& name);
+
+    friend ostream &operator<<(ostream &os, const entry &out);
+
+    friend istream &operator>>(istream &is, entry &in);
+
 };
 
 

@@ -6,29 +6,19 @@
 #define SIAOD_3_HASH_TABLE_H
 
 
+#include <utility>
 #include <vector>
 #include "entry.h"
+#include "Node.h"
 #include <iostream>
 #include <functional>
 
 class hash_table {
 private:
-    class MapNode {
-    public:
-        int key;
-        int value;
-        MapNode *next;
-
-        MapNode(int key, int value) {
-            this->key = key;
-            this->value = value;
-            this->next = nullptr;
-        }
-    };
 
     // The bucket array where
     // the nodes containing K-V pairs are stored
-    std::vector<MapNode *> buckets;
+    std::vector<Node *> buckets;
 
     // No. of pairs stored - n
     size_t size{};
@@ -44,11 +34,16 @@ private:
 public:
     hash_table();
 
-    void insert(int key, int value);
+    void insert(int key, const entry& value);
 
     void rehash();
 
-    void deleteAtPos(int key);
+    [[maybe_unused]] void deleteAtKey(int key);
+
+    const entry &operator[](int key);
+
+    friend const ostream &operator<<(ostream &os, const hash_table &out);
+
 };
 
 

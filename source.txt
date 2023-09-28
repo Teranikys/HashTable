@@ -1,0 +1,6 @@
+5
+Vlad_Chebakov 1 8
+Vova_Namestnikov 2 20
+Artemiy_Parshin 3 8
+Roma_Guseinov 4 16
+Andrey_Isaev 5 7
